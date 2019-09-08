@@ -6,14 +6,20 @@
   <meta name="keywords" content>
   <meta name="description" content="博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm">
-<meta property="og:url" content="https://wankaishun.github.io/2019/09/08/jvm/index.html">
+<meta property="og:title" content="MySQL优化">
+<meta property="og:url" content="https://wankaishun.github.io/2019/09/08/MySQL优化/index.html">
 <meta property="og:site_name" content="博客">
+<meta property="og:description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-08T03:17:56.918Z">
+<meta property="og:image" content="https://wankaishun.github.io/.io//%E5%9B%BE%E7%89%871.png">
+<meta property="og:updated_time" content="2019-09-08T09:34:43.092Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm">
+<meta name="twitter:title" content="MySQL优化">
+<meta name="twitter:description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
+<meta name="twitter:image" content="https://wankaishun.github.io/.io//%E5%9B%BE%E7%89%871.png">
 
 
 <link rel="icon" href="/img/face.jpg">
@@ -144,21 +150,9 @@
     
         
             
-            <li><div data-rel="虚拟机"><i class="fold iconfont icon-right"></i>虚拟机<small>(1)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="jvm">jvm<small>(1)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
+            <li><div data-rel="数据库">数据库<small>(1)</small></div>
                 
             </li>
-            
-        
-    
-        
             
         
     
@@ -206,6 +200,10 @@
     </form>
     <div class="tags-list">
     
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">MySQL</a>
+    </li>
+    
     <div class="clearfix"></div>
 </div>
 
@@ -216,12 +214,12 @@
     
     <nav id="title-list-nav">
         
-        <a  class="虚拟机 jvm "
-           href="/2019/09/08/jvm/"
-           data-tag=""
+        <a  class="数据库 "
+           href="/2019/09/08/MySQL优化/"
+           data-tag="MySQL"
            data-author="" >
-            <span class="post-title" title="jvm">jvm</span>
-            <span class="post-date" title="2019-09-08 11:04:43">2019/09/08</span>
+            <span class="post-title" title="MySQL优化">MySQL优化</span>
+            <span class="post-date" title="2019-09-08 16:40:25">2019/09/08</span>
         </a>
         
     </nav>
@@ -328,7 +326,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': [],
+            'data': ['#MySQL',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
