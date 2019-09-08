@@ -22,7 +22,21 @@
 <meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E4%B8%BE%E4%BE%8B1.png">
 <meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95.png">
 <meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%871.png">
-<meta property="og:updated_time" content="2019-09-08T11:07:34.690Z">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8711.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8713.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8714.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8715.png">
+<meta property="og:updated_time" content="2019-09-08T11:22:46.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL优化">
 <meta name="twitter:description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
@@ -265,7 +279,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-08 19:07:34'>2019-09-08 16:40</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-08 19:22:46'>2019-09-08 16:40</time>
         
     </div>
     <div class="article-meta">
@@ -287,7 +301,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-优化"><span class="toc-text">MySQL 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型的优化"><span class="toc-text">数据类型的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更小的更好"><span class="toc-text">更小的更好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单就好"><span class="toc-text">简单就好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尽量避免使用NULL"><span class="toc-text">尽量避免使用NULL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建高性能索引"><span class="toc-text">创建高性能索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的基础"><span class="toc-text">索引的基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HASH索引"><span class="toc-text">HASH索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间索引（R-Tree）"><span class="toc-text">空间索引（R-Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全文索引"><span class="toc-text">全文索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高性能索引策略"><span class="toc-text">高性能索引策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立的列"><span class="toc-text">独立的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的选择性"><span class="toc-text">索引的选择性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀索引"><span class="toc-text">前缀索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚簇索引"><span class="toc-text">聚簇索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引覆盖"><span class="toc-text">索引覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行计划"><span class="toc-text">执行计划</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-优化"><span class="toc-text">MySQL 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型的优化"><span class="toc-text">数据类型的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更小的更好"><span class="toc-text">更小的更好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单就好"><span class="toc-text">简单就好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尽量避免使用NULL"><span class="toc-text">尽量避免使用NULL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建高性能索引"><span class="toc-text">创建高性能索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的基础"><span class="toc-text">索引的基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HASH索引"><span class="toc-text">HASH索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间索引（R-Tree）"><span class="toc-text">空间索引（R-Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全文索引"><span class="toc-text">全文索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高性能索引策略"><span class="toc-text">高性能索引策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立的列"><span class="toc-text">独立的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的选择性"><span class="toc-text">索引的选择性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀索引"><span class="toc-text">前缀索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚簇索引"><span class="toc-text">聚簇索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引覆盖"><span class="toc-text">索引覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行计划"><span class="toc-text">执行计划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行计划字段"><span class="toc-text">执行计划字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#各字段详解"><span class="toc-text">各字段详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#id"><span class="toc-text">id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#select-type"><span class="toc-text">select_type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#possible-keys"><span class="toc-text">possible_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#key"><span class="toc-text">key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#key-len"><span class="toc-text">key_len</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ref"><span class="toc-text">ref</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rows"><span class="toc-text">rows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Extra"><span class="toc-text">Extra</span></a></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -442,7 +456,74 @@ alter table sakila.city_demo add key (city(7))</code></pre></li>
 <blockquote>
 <p><strong>使用索引扫描做排序</strong><br>如果Explain出来的Type列为“index”, 则说明MySQL使用了索引扫描来做排序。扫描索引本身是很快的，因为只需要从一条索引记录移动到紧接着的下一条记录。但如果索引无法覆盖所有的列，那就不得不扫描一条索引记录就回表查询一次对应的行，这基本上属于随机I/O，因此按索引顺序读取数据的速度通常比顺序地全表扫描要慢。</p>
 </blockquote>
-<h2 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h2><p>执行计划字段<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%871.png" alt="计划字段">)<br>其中最重要的字段为：id、type、key、rows、Extra</p>
+<h2 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h2><h3 id="执行计划字段"><a href="#执行计划字段" class="headerlink" title="执行计划字段"></a>执行计划字段</h3><p><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%871.png" alt="计划字段"><br>其中最重要的字段为：id、type、key、rows、Extra</p>
+<h3 id="各字段详解"><a href="#各字段详解" class="headerlink" title="各字段详解"></a>各字段详解</h3><h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序<br>三种情况： </p>
+<ol>
+<li><p>id相同：执行顺序由上至下<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%872.png" alt></p>
+</li>
+<li><p>id不同：如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%873.png" alt></p>
+</li>
+<li><p>id相同又不同（两种情况同时存在）：id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%874.png" alt></p>
+<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>查询的类型，主要是用于区分普通查询、联合查询、子查询等复杂的查询</p>
+<ol>
+<li>SIMPLE：简单的select查询，查询中不包含子查询或者union </li>
+<li>PRIMARY：查询中包含任何复杂的子部分，最外层查询则被标记为primary </li>
+<li>SUBQUERY：在select 或 where列表中包含了子查询 </li>
+<li>DERIVED：在from列表中包含的子查询被标记为derived（衍生），mysql或递归执行这些子查询，把结果放在零时表里 </li>
+<li>UNION：若第二个select出现在union之后，则被标记为union；若union包含在from子句的子查询中，外层select将被标记为derived </li>
+<li>UNION RESULT：从union表获取结果的select<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%875.png" alt><h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>访问类型，sql查询优化中一个很重要的指标，结果值从好到坏依次是：<br>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</li>
+<li>一般来说，好的sql查询至少达到range级别，最好能达到ref</li>
+</ul>
+<ol>
+<li><p>system：表只有一行记录（等于系统表），这是const类型的特例，平时不会出现，可以忽略不计</p>
+</li>
+<li><p>const：表示通过索引一次就找到了，const用于比较primary key 或者 unique索引。因为只需匹配一行数据，所有很快。如果将主键置于where列表中，mysql就能将该查询转换为一个const<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%876.png" alt></p>
+</li>
+<li><p>eq_ref：唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键 或 唯一索引扫描。<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%877.png" alt></p>
+</li>
+<li><p>ref：非唯一性索引扫描，返回匹配某个单独值的所有行。本质是也是一种索引访问，它返回所有匹配某个单独值的行，然而他可能会找到多个符合条件的行，所以它应该属于查找和扫描的混合体<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%878.png" alt></p>
+</li>
+<li><p>range：只检索给定范围的行，使用一个索引来选择行。key列显示使用了那个索引。一般就是在where语句中出现了bettween、&lt;、&gt;、in等的查询。这种索引列上的范围扫描比全索引扫描要好。只需要开始于某个点，结束于另一个点，不用扫描全部索引<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%879.png" alt></p>
+</li>
+<li><p>index：Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常为ALL块，应为索引文件通常比数据文件小。（Index与ALL虽然都是读全表，但index是从索引中读取，而ALL是从硬盘读取）<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8710.png" alt></p>
+</li>
+<li><p>ALL：Full Table Scan，遍历全表以找到匹配的行<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8711.png" alt></p>
+<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>查询涉及到的字段上存在索引，则该索引将被列出，但不一定被查询实际使用</p>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>实际使用的索引，如果为NULL，则没有使用索引。<br>查询中如果使用了覆盖索引，则该索引仅出现在key列表中  </p>
+<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>表示索引中使用的字节数，查询中使用的索引的长度（最大可能长度），并非实际使用长度，理论上长度越短越好。通过key_len可以检验索引是否生效</p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示索引的那一列被使用了，如果可能，是一个常量const。</p>
+<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>通过索引读取的行数</p>
+<h4 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h4><blockquote>
+<p>不适合在其他字段中显示，但是十分重要的额外信息</p>
+</blockquote>
+<ol>
+<li><p>Using filesort ：<br>mysql对数据使用一个外部的索引排序，而不是按照表内的索引进行排序读取。也就是说mysql无法利用索引完成的排序操作成为“文件排序”<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8712.png" alt><br>由于索引是先按email排序、再按address排序，所以查询时如果直接按address排序，索引就不能满足要求了，mysql内部必须再实现一次“文件排序”</p>
+</li>
+<li><p>Using temporary：<br>使用临时表保存中间结果，也就是说mysql在对查询结果排序时使用了临时表，常见于order by 和 group by<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8713.png" alt></p>
+</li>
+<li><p>Using index：<br>表示相应的select操作中使用了覆盖索引（Covering Index），避免了访问表的数据行，效率高<br>如果同时出现Using where，表明索引被用来执行索引键值的查找（参考上图）<br>如果没用同时出现Using where，表明索引用来读取数据而非执行查找动作<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8714.png" alt></p>
+<blockquote>
+<p>覆盖索引（Covering Index）：也叫索引覆盖。就是select列表中的字段，只用从索引中就能获取，不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖。<br>注意： </p>
+<ul>
+<li>如需使用覆盖索引，select列表中的字段只取出需要的列，不要使用select * </li>
+<li>如果将所有字段都建索引会导致索引文件过大，反而降低crud性能</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Using where ：<br>使用了where过滤</p>
+</li>
+<li><p>Using join buffer ：<br>使用了链接缓存</p>
+</li>
+<li><p>Impossible WHERE：<br>where子句的值总是false，不能用来获取任何元祖<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%8715.png" alt></p>
+</li>
+</ol>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 731593846@qq.com </span>
@@ -460,7 +541,7 @@ alter table sakila.city_demo add key (city(7))</code></pre></li>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="wankaishun">wankaishun</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-08, 16:40:25</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-08, 19:07:34</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-08, 19:22:46</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/08/MySQL优化/" title="MySQL优化">https://wankaishun.github.io/2019/09/08/MySQL优化/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
