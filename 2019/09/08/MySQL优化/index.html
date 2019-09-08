@@ -14,12 +14,19 @@
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/09/08/MySQL优化/图片1.png">
-<meta property="og:updated_time" content="2019-09-08T10:04:34.847Z">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E6%97%A5%E6%9C%9F%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/B-Tree.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/B+Tree.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E4%B8%BE%E4%BE%8B1.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95.png">
+<meta property="og:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%871.png">
+<meta property="og:updated_time" content="2019-09-08T11:07:34.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL优化">
 <meta name="twitter:description" content="MySQL 优化   前段时间公司内部做技术培训，轮到我需要讲MySQL的优化，基本上准备了一个周，看书看视频做了一个ppt。觉得里面有很多干货，所以把ppt的内容整理到博客中。         数据类型的优化更小的更好使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表. 简单就">
-<meta name="twitter:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/09/08/MySQL优化/图片1.png">
+<meta name="twitter:image" content="https://wankaishun.github.io/2019/09/08/MySQL优化/%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B.png">
 
 
 <link rel="icon" href="/img/face.jpg">
@@ -258,7 +265,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-08 18:04:34'>2019-09-08 16:40</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-08 19:07:34'>2019-09-08 16:40</time>
         
     </div>
     <div class="article-meta">
@@ -280,7 +287,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-优化"><span class="toc-text">MySQL 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型的优化"><span class="toc-text">数据类型的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更小的更好"><span class="toc-text">更小的更好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单就好"><span class="toc-text">简单就好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尽量避免使用NULL"><span class="toc-text">尽量避免使用NULL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-优化"><span class="toc-text">MySQL 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型的优化"><span class="toc-text">数据类型的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更小的更好"><span class="toc-text">更小的更好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单就好"><span class="toc-text">简单就好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尽量避免使用NULL"><span class="toc-text">尽量避免使用NULL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建高性能索引"><span class="toc-text">创建高性能索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的基础"><span class="toc-text">索引的基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HASH索引"><span class="toc-text">HASH索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间索引（R-Tree）"><span class="toc-text">空间索引（R-Tree）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全文索引"><span class="toc-text">全文索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高性能索引策略"><span class="toc-text">高性能索引策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立的列"><span class="toc-text">独立的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的选择性"><span class="toc-text">索引的选择性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀索引"><span class="toc-text">前缀索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚簇索引"><span class="toc-text">聚簇索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引覆盖"><span class="toc-text">索引覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行计划"><span class="toc-text">执行计划</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -299,9 +306,143 @@
 <h2 id="数据类型的优化"><a href="#数据类型的优化" class="headerlink" title="数据类型的优化"></a>数据类型的优化</h2><h3 id="更小的更好"><a href="#更小的更好" class="headerlink" title="更小的更好"></a>更小的更好</h3><p>使用更小的数据更小的数据类型会更快,对于CPU,磁盘和内存,io时间的消耗更少.但是要注意不要超出使用范围,对于MySQL而言,增加数据范围是非常麻烦的.需要去更新这个表.</p>
 <h3 id="简单就好"><a href="#简单就好" class="headerlink" title="简单就好"></a>简单就好</h3><p>简单数据类型的操作通常需要更少的CPU周期。例如，整型比字符操作代价更低，因为字符集和校队规则（排序规则）使字符比较比整型比较更复杂。这里有两个例子：一个是应该使用MySQL内建的类型而不是字符串来存储日期和时间，另外一个是应该用整型存储IP地址。</p>
 <h3 id="尽量避免使用NULL"><a href="#尽量避免使用NULL" class="headerlink" title="尽量避免使用NULL"></a>尽量避免使用NULL</h3><p>这一点是针对索引的,如果一个字段会使用索引,那么使用NULL后MySQL,引擎会更难优化.<br>当然也有例外对于使用innoDB引擎而言,使用单独的位(bit)来处理NULL,所以对于不需要建立索引的稀疏数据(大多数数据都是NULL)可以节约更多的磁盘空间</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><img src="/2019/09/08/MySQL优化/09/08/MySQL优化/图片1.png" title="This is an example image">
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p><img src="/2019/09/08/MySQL优化/%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B.png" alt="数值类型"></p>
+<ul>
+<li><p>根据我们上面的规则,选择小而简单的是最基本的原则.比如如果一个数据类型,它保存性别,那么使用tinyint是一个合理的选择  </p>
+</li>
+<li><p>对于整数类型而言,有无符号,具有相同的性能和存储空间,在都是自然数的情况下选择无符号是合理.  </p>
+</li>
+<li><p>decimal类型存储的是精确小数,因此它支持MySQL服务器下的精确运算.但是对于CPU和绝大多数编程语言而言他们支持浮点型运算,会损失精度,但是浮点型的运算速度会更快.这一点需要权衡.使用decimal会需要额外的空间和运算速度. </p>
+</li>
+<li><p>int类型有时会指定一个长度。但是，这里的长度并非是NT类型存储的最大长度，而是显示的最大长度。并不会影响到使用,只会对MySQL工具显示造成影响</p>
+</li>
+</ul>
+<p><img src="/2019/09/08/MySQL优化/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B.png" alt="字符串类型"></p>
+<ul>
+<li><p>varchar是可变长的字符串,他比定长类型要节约空间.原因在于他只保存当然存在的长度,但是一旦发生update操作,varchar会需要长度变化,从而造成性能下降 </p>
+</li>
+<li><p>对于字符串长度变化大的,更新少的我们建议使用varchar </p>
+</li>
+<li><p>相反char型适合存储很短的字符串,或者长度相近的字符串.比如使用hash算法生成的字符串(md5值, sha1密码) </p>
+</li>
+<li><p>对于varchar而言使用更小的列会更为有效,更节约运算使用内存.因为对于MySQL引擎而言,他会倾向与使用固定大小的块来保持内部值,比如临时表.对于varchar(255)对比varchar(20),会在内部优化与计算中产生更大的内存. </p>
+</li>
+<li><p>BLOB系列存储二进制字符串，与字符集无关。TEXT系列存储非二进制字符串，与字符集相关。一般情况下，你可以认为BLOB是一个更大的VARBINARY；TEXT是一个更大的VARCHAR </p>
+</li>
+<li><p>BLOB和TEXT都不能有默认值,也无法建立索引(不是全文索引),只能针对前面一些字符建立索引 </p>
+</li>
+<li><p>BLOB系列存储二进制字符串，与字符集无关。TEXT系列存储非二进制字符串，与字符集相关。一般情况下，你可以认为BLOB是一个更大的VARBINARY；TEXT是一个更大的VARCHAR </p>
+</li>
+<li><p>BINARY 和 VARBINARY 与 CHAR 和 VARCHAR 类似,但是他们保存的是二进制串,与字符集无关</p>
+</li>
+</ul>
+<p><img src="/2019/09/08/MySQL优化/%E6%97%A5%E6%9C%9F%E7%B1%BB%E5%9E%8B.png" alt="日期类型"></p>
+<ul>
+<li><p>用MySQL的内建类型DATE、TIME、DATETIME来存储时间，而不是使用字符串 </p>
+</li>
+<li><p>相比较于datetime类型我们更推荐使用timestamp类型,他的空间效率更高,但要注意timestamp的范围更短 </p>
+</li>
+<li><p>MySQL只支持秒级别的时间,如果需要微秒级别时间,可以使用BIGINT来保存,或者采用MariaDB代替MySQL</p>
+</li>
+</ul>
+<h2 id="创建高性能索引"><a href="#创建高性能索引" class="headerlink" title="创建高性能索引"></a>创建高性能索引</h2><h3 id="索引的基础"><a href="#索引的基础" class="headerlink" title="索引的基础"></a>索引的基础</h3><ul>
+<li><p>索引是存储引擎快速找到记录的一种数据结构</p>
+</li>
+<li><p>索引优化是对查询性能优化最有效的手段。</p>
+</li>
+<li><p>索引的类型：B-Tree索引、哈希索引、空间索引、全文索引。</p>
+</li>
+<li><p>B-Tree索引:对索引列是顺序存储的适合键值范围、全键值和键前缀查找，其中键前缀查找只适用于最左前缀查找；</p>
+</li>
+<li><p>B-Tree索引的限制:如果不是按照索引最左列开始查找则无法使用索引，不能够跳过索引，如果查询中有某个列的范围查找则其他右边的所有列都无法使用索引优化查找。</p>
+</li>
+<li><p>哈希索引:在MySQL中只有Memory引擎显式支持哈希索引，哈希索引基于哈希表实现，只有精确匹配索引所有列的查询才有效。</p>
+</li>
+<li><p>哈希索引的限制:哈希索引只包含哈希值和行指针，哈希索引数据并不是按照索引值顺序存储的所以无法用于排序，哈希索引不支持部分索引列匹配查找哈希索引只支持等值比较查询，如果哈希冲突很多的话索引维护代价会很高，访问哈希索引当前出现哈希冲突的时候存储引擎必须遍历所有行的指针直到找到符合条件的行。</p>
+<p>  <strong>B-Tree</strong><br>  <img src="/2019/09/08/MySQL优化/B-Tree.png" alt="BTree"><br>  B树的特点：</p>
+<ol>
+<li>所有键值分布在整个树中</li>
+<li>任何关键字出现且只出现在一个节点中</li>
+<li>搜索有可能在非叶子节点结束</li>
+<li>在关键字全集内做一次查找，性能逼近二分查找算法</li>
+</ol>
+<p>  <strong>B+Tree</strong><br>  <img src="/2019/09/08/MySQL优化/B+Tree.png" alt="BTree"></p>
+<p>  从图中也可以看到，B+树与B树的不同在于：</p>
+<ol>
+<li>所有关键字存储在叶子节点，非叶子节点不存储真正的data</li>
+<li>为所有叶子节点增加了一个链指针</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>那么问题来了，为什么用B/B+树这种结构来实现索引呢？？</p>
+</blockquote>
+<blockquote>
+<p>答：红黑树等结构也可以用来实现索引，但是文件系统及数据库系统普遍使用B/B+树结构来实现索引。mysql是基于磁盘的数，<br>据库索引是以索引文件的形式存在于磁盘中的，索引的查找过程就会涉及到磁盘IO消耗，磁盘IO的消耗相比较于内存IO的消耗<br>要高好几个数量级，所以索引的组织结构要设计得在查找关键字时要尽量减少磁盘IO的次数。为什么要使用B/B+树，跟磁盘的<br>存储原理有关。</p>
+</blockquote>
+<blockquote>
+<p>为什么mysql的索引使用B+树而不是B树呢？？</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>B+树更适合外部存储(一般指磁盘存储),由于内节点(非叶子节点)不存储data，所以一个节点可以存储更多的内节点，<br>每个节点能索引的范围更大更精确。也就是说使用B+树单次磁盘IO的信息量相比较B树更大，IO效率更高。</li>
+<li>mysql是关系型数据库，经常会按照区间来访问某个索引列，B+树的叶子节点间按顺序建立了链指针，加强了区间访<br>问性，所以B+树对索引列上的区间范围查询很友好。而B树每个节点的key和data在一起，无法进行区间查找。</li>
+</ol>
+</blockquote>
+<p>   <img src="/2019/09/08/MySQL优化/%E4%B8%BE%E4%BE%8B1.png" alt="BTree"></p>
+<h3 id="HASH索引"><a href="#HASH索引" class="headerlink" title="HASH索引"></a>HASH索引</h3><ul>
+<li><p>MySQL中只有Memory引擎显式支持哈希索引,</p>
+</li>
+<li><p>InnoDB引擎有一种特殊的功能叫“自适应哈希索引”，当InnoDB注意到某些索引值被引用得非常频繁时，它会在内存中基于B-Tree索引之上再创建一个哈希索引。这会让B-Tree索引也具有哈希索引的一些优点，比如快速查询。这是一个完全自主的、内部的行为，用户无法控制或者配置，不过可以关闭该功能。<br>url创建url_crc哈希列：</p>
+<pre><code>alter table table add column url_crc int unsigned NOT NULL default 0;</code></pre><p>然后为url_crc列加上索引：</p>
+<pre><code>alter table table add index idx_url_crc(`url_crc`);</code></pre><p>查询时可以根据url和url_crc的值进行查询：</p>
+<pre><code>select * from table where url=&apos;http://www.mysql.com&apos; and url_crc=crc32(&quot;http://www.mysql.com&quot;);</code></pre><p>存储的时候加触发器将url 转为hash 也可以业务插入 使用crc32 做hash 算法因为比较短生成的数据</p>
+<p> <strong>注意事项</strong></p>
+<ol>
+<li>HASH索引只用于使用 = 或 &lt;=&gt; 操作符的等式比较。如果一定要使用范围查询 的话，只能使用BTREE索引。</li>
+<li>优化器不能使用 Hash 索引来加速 order by 操作。</li>
+<li>使用 Hash 索引时 MySQL 不能确定在两个值之间大约有多少行。如果将一 个MyISAM表改为的 Hash 索引 memory 表，<br>会影响一些查询的执行效率。</li>
+<li>Hash索引只能使用整个关键字来搜索一行。</li>
+</ol>
+</li>
+</ul>
+<h3 id="空间索引（R-Tree）"><a href="#空间索引（R-Tree）" class="headerlink" title="空间索引（R-Tree）"></a>空间索引（R-Tree）</h3><ul>
+<li>MyIsam表支持空间索引，Mysql本身对GIS的支持并不完善，开源关系数据库中对GIS的解决方案做的比较好的是PostgreSQL的PostGIS</li>
+</ul>
+<h3 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h3><ul>
+<li>全文索引是一种特殊的索引，它查找的是文本中的关键词而不是直接比较索引中的值。全文索引更加类似与搜索引擎做的事情，而不是简单的WHERE匹配。在同一列上同时创建全文索引和基于值的B-Tree索引不会有冲突。没什么用，必须手动输入varchar，text中的空格，所以不支持中文分词，只是把所有空格隔开的单词进行了一下倒排序。<h2 id="高性能索引策略"><a href="#高性能索引策略" class="headerlink" title="高性能索引策略"></a>高性能索引策略</h2></li>
+</ul>
+<h3 id="独立的列"><a href="#独立的列" class="headerlink" title="独立的列"></a>独立的列</h3><ul>
+<li>指索引不能是表达式的一部分，也不能是函数的参数。常见的非独立的列<br>  表达式的一部分，不是独立列<pre><code>select act_id from table where act_id+1 = 5;     </code></pre>  函数的参数<pre><code>select * from table where TO_DAYS(CURRENT_DATE) - TO_DAYS(date_col)&lt;=10;</code></pre><h3 id="索引的选择性"><a href="#索引的选择性" class="headerlink" title="索引的选择性"></a>索引的选择性</h3></li>
+</ul>
+<p>不重复的值（Cardinality, 基数）占数据表总数的比值。索引的选择性越高则查询效率越高，因为选择性高的索引可以让MySQL在查找时过滤掉更多的行。唯一索引的选择性是1，这时最好的索引选择性，性能也是最好的。选择索引时应该选择足够长的前缀以保证较高的选择性，同时又不能太长。</p>
+<h3 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h3><ul>
+<li><p>有时候索引内容过长，这会使索引大且慢，解决方法一种是前面说的hash索引。还有什么别的办法呢</p>
+</li>
+<li><p>通常我们可以索引这个列的开始部分字符，而对于blob,text很长的varchar类型必须使用前缀索引（如果需要加索引的话），因为mysql 存不了这么长的索引<br>  这样来选择前缀索引：</p>
+<pre><code>select count(distinct city)/count(*) from sakila.city_demo
 
+select count(distinct left(city, 7))/count(*) as sel7 from sakila.city_demo
 
+alter table sakila.city_demo add key (city(7))</code></pre></li>
+</ul>
+<h3 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h3><ul>
+<li>聚簇索引并不是一种单独的索引类型，而是一种数据存储方式。InnoDB的聚簇索引实际上在同一个结构中保存了B-Tree索引和数据行（索引的顺序与数据的物理存放位置一致，“聚簇”表示数据行和相应的键值紧凑地存储在一起），因为无法同时把数据行存放在两个不同的地方，所以一个表只能有一个聚簇索引。并不是所有的存储引擎都支持聚簇索引。</li>
+<li>InnoDB通关过主键聚集数据。如果没有定义主键，InnoDB会选择一个唯一的非空索引作为替代。如果没有这样的索引，InnoDB会隐式定义一个主键来作为聚簇索引</li>
+<li>innodb中，在聚簇索引之上创建的索引称之为辅助索引，辅助索引访问数据总是需要二次查找，非聚簇索引都是辅助索引，像复合索引、前缀索引、唯一索引，辅助索引叶子节点存储的不再是行的物理位置，而是主键值</li>
+</ul>
+<p><img src="/2019/09/08/MySQL优化/%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95.png" alt="聚簇索引">)</p>
+<h3 id="索引覆盖"><a href="#索引覆盖" class="headerlink" title="索引覆盖"></a>索引覆盖</h3><blockquote>
+<p>如果一个索引包含所有需要查询的字段值我就称为索引覆盖，覆盖索引能够极大的提高性能，覆盖索引带来的好处有：</p>
+<ul>
+<li>索引条目远小于数据行大小，能够极大地提高性能，所以如果只需要读取索引，那么MySQL就会极大地减少数据访问量</li>
+<li>因为索引是按照值顺序存储的，所以对于I/O密集型的范围查询会比随机从磁盘中读取每一行数据的I/O要少的多。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>使用索引扫描做排序</strong><br>如果Explain出来的Type列为“index”, 则说明MySQL使用了索引扫描来做排序。扫描索引本身是很快的，因为只需要从一条索引记录移动到紧接着的下一条记录。但如果索引无法覆盖所有的列，那就不得不扫描一条索引记录就回表查询一次对应的行，这基本上属于随机I/O，因此按索引顺序读取数据的速度通常比顺序地全表扫描要慢。</p>
+</blockquote>
+<h2 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h2><p>执行计划字段<br><img src="/2019/09/08/MySQL优化/%E5%9B%BE%E7%89%871.png" alt="计划字段">)<br>其中最重要的字段为：id、type、key、rows、Extra</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 731593846@qq.com </span>
@@ -319,7 +460,7 @@
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="wankaishun">wankaishun</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-08, 16:40:25</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-08, 18:04:34</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-08, 19:07:34</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/08/MySQL优化/" title="MySQL优化">https://wankaishun.github.io/2019/09/08/MySQL优化/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
